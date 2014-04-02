@@ -49,6 +49,8 @@ public class MainActivity extends SherlockFragmentActivity
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
+		
+		//saving data from previous
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
