@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">My Health File</string>
+    <string name="add_medicine">Add Medicine</string>
+    <string name="action_contact">Contact</string>
+
+    <string-array name="planets_array">
+        <item>Dashboard</item>
+        <item>Medicine</item>
+        <item>Appointment</item>
+        <item>Reports</item>
+    </string-array>
+
+    <string-array name="choose_dosage_array">
+        <item>Once a Day</item>
+        <item>Twice a Day</item>
+        <item>Thrice a Day</item>
+        <item>Custom</item>
+    </string-array>
+    
+    <string name="add">Add</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_websearch">Web search</string>
+    <string name="app_not_available">Sorry, there\'s no web browser available</string>
+
+</resources>
