@@ -52,7 +52,7 @@
         
         
         <activity
-            android:name="com.webileapps.navdrawer.AddMedicine"
+            android:name="com.webileapps.navdrawer.AddObject"
             android:label="@string/add_medicine" >
             <intent-filter>
         		<action android:name="android.intent.action.ADD_MEDICINE"/>

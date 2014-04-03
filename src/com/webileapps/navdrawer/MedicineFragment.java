@@ -55,24 +55,10 @@ public class MedicineFragment extends SherlockListFragment
 		setHasOptionsMenu(true);
 	}
 	
-	/*@Override
-	public void onResume()
-	{
-		super.onResume();
-		setHasOptionsMenu(true);
-	}
-
-	public void onStart()
-	{
-		super.onStart();
-		setHasOptionsMenu(true);
-	}
-	*/
 	@Override
     public void onListItemClick(ListView l, View v, int position, long id) 
 	{
-		Intent i = new Intent(getActivity(), ItemViewAvtivity.class);
-        
+		Intent i = new Intent(getActivity(), ItemViewAvtivity.class);   
 		
 		i.putExtra("sender","medicine");
         i.putExtra("name", mathList[position].name);
@@ -80,12 +66,9 @@ public class MedicineFragment extends SherlockListFragment
         i.putExtra("image_source", mathList[position].image);
         i.putExtra("time", mathList[position].time_due);
         
-        
-        
         startActivity(i);
         super.onListItemClick(l, v, position, id);
     }
-	
 	
 	@Override
 	public boolean onOptionsItemSelected(com.actionbarsherlock.view.MenuItem item) 
@@ -95,14 +78,12 @@ public class MedicineFragment extends SherlockListFragment
 		{
 
 		case R.id.add:
-			Toast.makeText(getActivity().getApplicationContext(), "In medicine fragmentt", 
-					   Toast.LENGTH_SHORT).show();
-			Toast.makeText(getActivity().getApplicationContext(), "In medicine fragmentt", 
-					   Toast.LENGTH_SHORT).show();
+			//Toast.makeText(getActivity().getApplicationContext(), "In medicine fragmentt",Toast.LENGTH_SHORT).show();
 			Activity activity = this.getActivity();
 			
-			Intent intent = new Intent(activity.getBaseContext(), AddMedicine.class );
-	        startActivityForResult(intent, 1);
+			Intent intent = new Intent(activity.getBaseContext(), AddObject.class );
+	        intent.putExtra("addition_type","medicine");
+			startActivityForResult(intent, 1);
 	        
 			break;
 			
@@ -128,12 +109,10 @@ public class MedicineFragment extends SherlockListFragment
 			
 		setListAdapter(new ItemAdapter(getActivity(), R.layout.subject_item_row, mathList));
 	}
-	
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
-	{
-		
+	{	
 		View view =inflater.inflate(R.layout.medicine_view, container, false);
 		AdView adView = (AdView) view.findViewById(R.id.adView);
 	    AdRequest adRequest = new AdRequest.Builder().build();
@@ -160,5 +139,4 @@ public class MedicineFragment extends SherlockListFragment
 		
 		return view;
 	}
-
 }

@@ -19,6 +19,7 @@ package com.webileapps.navdrawer;
 
 import java.util.ArrayList;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -57,12 +58,10 @@ public class AppointmentFragment extends SherlockListFragment
 		setHasOptionsMenu(true);
 	}
 	
-	
 	@Override
     public void onListItemClick(ListView l, View v, int position, long id) 
 	{
-		Intent i = new Intent(getActivity(), ItemViewAvtivity.class);
-        
+		Intent i = new Intent(getActivity(), ItemViewAvtivity.class);   
 		
 		i.putExtra("sender","appointment");
         i.putExtra("name", mathList[position].name);
@@ -70,37 +69,51 @@ public class AppointmentFragment extends SherlockListFragment
         i.putExtra("image_source", mathList[position].image);
         i.putExtra("time", mathList[position].time_due);
         
-        
-        
         startActivity(i);
         super.onListItemClick(l, v, position, id);
     }
 	
-	
 	@Override
 	public boolean onOptionsItemSelected(com.actionbarsherlock.view.MenuItem item) 
 	{
-
 		switch (item.getItemId()) 
 		{
-
-		case R.id.add:
-			Toast.makeText(getActivity().getApplicationContext(), "In Appointment fragment", 
-					   Toast.LENGTH_SHORT).show();
+			case R.id.add:
+			//Toast.makeText(getActivity().getApplicationContext(), "In appointment fragmentt",Toast.LENGTH_SHORT).show();
+			Activity activity = this.getActivity();
+			
+			Intent intent = new Intent(activity.getBaseContext(), AddObject.class );
+	        intent.putExtra("addition_type","appointment");
+			startActivityForResult(intent, 1);
+	        
 			break;
 			
-		default:
+			default:
 			break;
 		}
 
 		return super.onOptionsItemSelected(item);
 	}
 	
+	public void onActivityResult(int requestCode, int resultCode, Intent data) 
+	{
+		ArrayList<Appointment> listOfAppointments = db.getAllAppointment();
+        
+        mathList = new Item[listOfAppointments.size()];
+		for(int i = 0; i < listOfAppointments.size(); ++i)
+		{
+			Item obj = new Item( listOfAppointments.get(i).drName, listOfAppointments.get(i).date,
+								listOfAppointments.get(i).time, listOfAppointments.get(i).location);
+			
+			mathList[i] = obj;
+		}
+		
+		setListAdapter(new ItemAdapter(getActivity(), R.layout.subject_item_row, mathList));
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
-	{
-		
+	{	
 		View view= inflater.inflate(R.layout.appointment_view, container, false);
 		AdView adView = (AdView) view.findViewById(R.id.adView);
 	    AdRequest adRequest = new AdRequest.Builder().build();
@@ -125,5 +138,4 @@ public class AppointmentFragment extends SherlockListFragment
         
 		return view;
 	}
-
 }
