@@ -15,6 +15,7 @@
  */
 
 package com.webileapps.navdrawer;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -30,7 +31,7 @@ import com.actionbarsherlock.app.SherlockListFragment;
 
 public class DashboardFragment extends SherlockListFragment
 {
-	//ourDatabase db = new ourDatabase(getActivity());
+	ourDatabase db = new ourDatabase(getActivity());
 	
 	private Item[] mathList;
 
@@ -51,7 +52,6 @@ public class DashboardFragment extends SherlockListFragment
     public void onListItemClick(ListView l, View v, int position, long id) 
 	{
 		Intent i = new Intent(getActivity(), ItemViewAvtivity.class);
-        
 		
 		i.putExtra("sender","dashboard");
         i.putExtra("name", mathList[position].name);
@@ -69,7 +69,6 @@ public class DashboardFragment extends SherlockListFragment
 	@Override
 	public boolean onOptionsItemSelected(com.actionbarsherlock.view.MenuItem item) 
 	{
-
 		switch (item.getItemId()) 
 		{
 
@@ -91,31 +90,30 @@ public class DashboardFragment extends SherlockListFragment
 	{
 		View view= inflater.inflate(R.layout.dashboard_view, container, false);
 		
-		//db.insertMedicine();
+		db = new ourDatabase(getActivity());
+        
+        ArrayList<Medicine> listOfMedicines = db.getAllMedicine();
+        ArrayList<Appointment> listOfAppointments = db.getAllAppointment();
+        
+        mathList = new Item[listOfMedicines.size() + listOfAppointments.size()];
+        int j = 0;
+		for(int i = 0; i < listOfMedicines.size(); ++i)
+		{
+			Item obj = new Item( listOfMedicines.get(i).name_of_medicine, listOfMedicines.get(i).medicine_description,
+								listOfMedicines.get(i).medicine_alarm_time, listOfMedicines.get(i).medicine_picture);
+			
+			mathList[j] = obj;
+			++j;
+		}
 		
-		mathList = new Item[] {
-				new Item("LOL x-ray","description","12:00 PM",""), 
-				new Item("city scan","description","10:00 PM",""), 
-				new Item("Back X-ray","description","11:00 AM",""), 
-				new Item("Altra sound of Ibrahim","description","01:00 AM",""),
-				new Item("Baby test tube of Ibrahim","description","12:00 PM",""), 
-				new Item("Sound test of Komal","description","01:00 AM",""),
-				new Item("Dr lallu","description","12:00 PM",""), 
-				new Item("Dr tharki","description","10:00 PM",""), 
-				new Item("Dr Ibrahim urf hidden theeta","description","11:00 AM",""), 
-				new Item("Dr Bilal urf gulabo","description","01:00 AM",""),
-				new Item("Dr Abdullah","description","12:00 PM",""), 
-				new Item("Acivir Pills","description","10:00 PM",""), 
-				new Item("Dr Komal :P","description","01:00 AM",""),
-				new Item("Viegra","description","12:00 PM",""), 
-				new Item("Acivir Pills","description","10:00 PM",""), 
-				new Item(" CIALIS","description","11:00 AM",""), 
-				new Item("Female Viegra","description","01:00 AM",""),
-				new Item("Viegra","description","12:00 PM",""), 
-				new Item("Acivir Pills","description","10:00 PM",""), 
-				new Item(" CIALIS","description","11:00 AM",""), 
-				new Item("Female Viegra","description","01:00 AM","")};
-		
+		for(int i = 0; i < listOfAppointments.size(); ++i)
+		{
+			Item obj = new Item( listOfAppointments.get(i).drName, listOfAppointments.get(i).date,
+								listOfAppointments.get(i).time, listOfAppointments.get(i).location);
+			
+			mathList[j] = obj;
+			++j;
+		}
 		
 		List<Item> items = Arrays.asList(mathList);
 
@@ -133,25 +131,6 @@ public class DashboardFragment extends SherlockListFragment
 		setListAdapter(new ItemAdapter(getActivity(), R.layout.subject_item_row, mathList));
 		
 		return view;
-
-/*		LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-
-		FrameLayout fl = new FrameLayout(getActivity());
-		fl.setLayoutParams(params);
-
-		final int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources()
-				.getDisplayMetrics());
-
-		TextView v = new TextView(getActivity());
-		params.setMargins(margin, margin, margin, margin);
-		v.setLayoutParams(params);
-		v.setLayoutParams(params);
-		v.setGravity(Gravity.CENTER);
-		v.setBackgroundResource(R.drawable.background_card);
-		v.setText("CARD " + (position + 1));
-
-		fl.addView(v);
-		return fl;*/
 	}
 
 }

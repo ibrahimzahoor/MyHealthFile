@@ -1,13 +1,10 @@
 package com.webileapps.navdrawer;
 
 import java.util.Calendar;
-
 import com.fourmob.datetimepicker.date.DatePickerDialog;
 import com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener;
 import com.sleepbot.datetimepicker.time.RadialPickerLayout;
 import com.sleepbot.datetimepicker.time.TimePickerDialog;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -23,9 +20,6 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
-import java.util.Calendar;
-import java.util.Date;
 
 public class AddMedicine extends FragmentActivity implements OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
@@ -51,10 +45,10 @@ public class AddMedicine extends FragmentActivity implements OnDateSetListener, 
         final TimePickerDialog timePickerDialog = TimePickerDialog.newInstance(this, calendar.get(Calendar.HOUR_OF_DAY) ,calendar.get(Calendar.MINUTE), false, false);
         
         EditText ed= (EditText)findViewById(R.id.date);
-        ed.setText(calendar.get(Calendar.YEAR) + " - " + calendar.get(Calendar.MONTH) + " - " + calendar.get(Calendar.DAY_OF_MONTH));
+        ed.setText(calendar.get(Calendar.MONTH) + "/" + calendar.get(Calendar.DAY_OF_MONTH) + "/" + calendar.get(Calendar.YEAR));
         
         EditText ed2= (EditText)findViewById(R.id.time);
-        ed2.setText( calendar.get(Calendar.HOUR_OF_DAY) + " - " + calendar.get(Calendar.MINUTE));
+        ed2.setText( calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE));
         
         findViewById(R.id.date_image).setOnClickListener(new OnClickListener() {
 
@@ -122,17 +116,17 @@ public class AddMedicine extends FragmentActivity implements OnDateSetListener, 
 	
 	 @Override
 	    public void onDateSet(DatePickerDialog datePickerDialog, int year, int month, int day) {
-	        Toast.makeText(this, "new date:" + year + "-" + month + "-" + day, Toast.LENGTH_LONG).show();
+	        Toast.makeText(this, "new date:" + year + "/" + month + "/" + day, Toast.LENGTH_LONG).show();
 	        
 	        EditText ed= (EditText)findViewById(R.id.date);
-	        ed.setText(year + "-" + month + "-" + day);
+	        ed.setText(year + "/" + month + "/" + day);
 	    }
 
 	@Override
 	public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
-	        Toast.makeText(this, "new time:" + hourOfDay + "-" + minute, Toast.LENGTH_LONG).show();
+	        Toast.makeText(this, "new time:" + hourOfDay + ":" + minute, Toast.LENGTH_LONG).show();
 	        EditText ed= (EditText)findViewById(R.id.time);
-	        ed.setText(hourOfDay + "-" + minute);
+	        ed.setText(hourOfDay + ":" + minute);
 	    }
 	    
 	
@@ -146,7 +140,16 @@ public class AddMedicine extends FragmentActivity implements OnDateSetListener, 
 				if(AddMedicineToDB())
 				{
 					Toast.makeText(getApplicationContext(), "Medicine Added", Toast.LENGTH_LONG).show();
+					/*Fragment frg = null;
+					frg = getSupportFragmentManager().findFragmentByTag("Awain_m");
+					final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+					ft.detach(frg);
+					ft.attach(frg);
+					ft.commit();
+					//*/
+					
 					finish();
+					
 				}
 				else
 				{
@@ -158,6 +161,7 @@ public class AddMedicine extends FragmentActivity implements OnDateSetListener, 
 			case R.id.action_cancel: 
 //				db.deleteAllAssesment();
 //				refreshList();
+				finish();
 				Toast.makeText(getApplicationContext(), "Cancel", Toast.LENGTH_LONG).show();
 				return true;
 			
@@ -185,9 +189,10 @@ public class AddMedicine extends FragmentActivity implements OnDateSetListener, 
 		(name_medicine.getText().toString().length() > 0 && desc_medicine.getText().toString().length() > 0 &&
 			start_time_medicine.getText().toString().length() > 0 && date_end_medicine.getText().toString().length() > 0))
 		{
-			Medicine obj=new Medicine(0,name_medicine.getText().toString(),desc_medicine.getText().toString(),
-					"", mon.isChecked(), tue.isChecked(), wed.isChecked(), thu.isChecked(), fri.isChecked(),sat.isChecked(),sun.isChecked(),
-					start_time_medicine.getText().toString(),"",false,"");
+			Medicine obj=new Medicine(0, name_medicine.getText().toString(), "", desc_medicine.getText().toString(),
+			mon.isChecked(), tue.isChecked(), wed.isChecked(), thu.isChecked(), fri.isChecked(),sat.isChecked(),
+			sun.isChecked(), start_time_medicine.getText().toString(), "", false, start_time_medicine.getText().toString());
+			
 			db.insertMedicine(obj);
 			flag = true;
 		}

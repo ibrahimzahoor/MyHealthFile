@@ -346,7 +346,7 @@ public class ourDatabase extends SQLiteOpenHelper
 	{
 		SQLiteDatabase db = this.getWritableDatabase();
         db.delete(Med_Table, null, null);
-        db.delete(App_Table, null, null);
+        //db.delete(App_Table, null, null);
         
         db.close();
 	}

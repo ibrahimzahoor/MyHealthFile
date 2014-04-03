@@ -53,6 +53,19 @@ public class MedicineFragment extends SherlockListFragment
 		setHasOptionsMenu(true);
 	}
 	
+	/*@Override
+	public void onResume()
+	{
+		super.onResume();
+		setHasOptionsMenu(true);
+	}
+
+	public void onStart()
+	{
+		super.onStart();
+		setHasOptionsMenu(true);
+	}
+	*/
 	@Override
     public void onListItemClick(ListView l, View v, int position, long id) 
 	{
@@ -87,7 +100,7 @@ public class MedicineFragment extends SherlockListFragment
 			Activity activity = this.getActivity();
 			
 			Intent intent = new Intent(activity.getBaseContext(), AddMedicine.class );
-	        startActivity(intent);
+	        startActivityForResult(intent, 1);
 	        
 			break;
 			
@@ -98,7 +111,21 @@ public class MedicineFragment extends SherlockListFragment
 		return super.onOptionsItemSelected(item);
 	}
 	
-	
+	public void onActivityResult(int requestCode, int resultCode, Intent data) 
+	{
+		ArrayList<Medicine> listOfMedicines = db.getAllMedicine();
+        
+        mathList = new Item[listOfMedicines.size()];
+		for(int i = 0; i < listOfMedicines.size(); ++i)
+		{
+			Item obj = new Item( listOfMedicines.get(i).name_of_medicine, listOfMedicines.get(i).medicine_description,
+								listOfMedicines.get(i).medicine_alarm_time, listOfMedicines.get(i).medicine_picture);
+			
+			mathList[i] = obj;
+		}
+			
+		setListAdapter(new ItemAdapter(getActivity(), R.layout.subject_item_row, mathList));
+	}
 	
 
 	@Override
