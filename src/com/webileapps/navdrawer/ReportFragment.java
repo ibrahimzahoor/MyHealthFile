@@ -64,8 +64,6 @@ public class ReportFragment extends SherlockListFragment
         i.putExtra("image_source", mathList[position].image);
         i.putExtra("time", mathList[position].time_due);
         
-        
-        
         startActivity(i);
         super.onListItemClick(l, v, position, id);
     }
@@ -97,22 +95,16 @@ public class ReportFragment extends SherlockListFragment
 		
 		View view = inflater.inflate(R.layout.report_view, container, false);
 		
-		mathList = new Item[] {
-				new Item("LOL x-ray","description","12:00 PM",""), 
-				new Item("city scan","description","10:00 PM",""), 
-				new Item("Back X-ray","description","11:00 AM",""), 
-				new Item("Altra sound of Ibrahim","description","01:00 AM",""),
-				new Item("Baby test tube of Ibrahim","description","12:00 PM",""), 
-				new Item("Sound test of Komal","description","01:00 AM","")};
-		
-		
-		
+		mathList = new Item[] 
+				{
+					new Item("X-ray","description","12:00 PM",""), 
+					new Item("City Scan","description","10:00 PM",""), 
+					new Item("Ultra sound","description","01:00 AM","")
+				};
 		
 		setListAdapter(new ItemAdapter(getActivity(), R.layout.subject_item_row, mathList));
 		
 		return view;
-
-
 	}
 
 }

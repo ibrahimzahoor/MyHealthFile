@@ -24,8 +24,6 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 
 public class ItemViewAvtivity extends SherlockFragmentActivity 
 {
-	
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
@@ -60,10 +58,7 @@ public class ItemViewAvtivity extends SherlockFragmentActivity
 		name.setText(i.getStringExtra("name"));
 		
 		TextView desc= (TextView)findViewById(R.id.textView3);
-		desc.setText("desc");
-		
-		
-		
+		desc.setText(i.getStringExtra("desc"));
 	}
 
 

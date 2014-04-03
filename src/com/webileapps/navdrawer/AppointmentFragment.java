@@ -103,7 +103,7 @@ public class AppointmentFragment extends SherlockListFragment
 		
 		db = new ourDatabase(getActivity());
         
-		//Appointment m = new Appointment(5, "Dr. Umar Suleman", "04/02/2014", "12:00", "Zahoor Elahi Road", "", ""); 
+		//Appointment m = new Appointment(5, "Dr. Umar Suleman", "04/03/2014", "12:00", "Zahoor Elahi Road", "", ""); 
         //db.insertAppointment(m);
         ArrayList<Appointment> listOfAppointments = db.getAllAppointment();
         
