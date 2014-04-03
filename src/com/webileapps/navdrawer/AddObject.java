@@ -166,21 +166,6 @@ public class AddObject extends FragmentActivity implements OnDateSetListener, Ti
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
-		if(type.equals("medicine"))
-		{	
-			setContentView(R.layout.addmedicine_activity);
-			this.setInitialDateTime();
-			this.forMedicine();
-		}
-		else if(type.equals("appointment"))
-		{
-			setContentView(R.layout.add_appointment);
-			this.setInitialDateTime();
-		}
-		else
-		{
-			//setContentView(R.layout.add_appointment);
-		}
 		// Handle item selection 
 		switch (item.getItemId()) 
 		{ 
