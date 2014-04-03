@@ -19,12 +19,14 @@ package com.webileapps.navdrawer;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.actionbarsherlock.view.Menu;
@@ -36,6 +38,8 @@ public class AppointmentFragment extends SherlockListFragment
 {
 	ourDatabase db = new ourDatabase(getActivity());
 	String TAG="Awain";
+	
+	private Item[] mathList;
 	
 	public static AppointmentFragment newInstance() 
 	{
@@ -50,6 +54,25 @@ public class AppointmentFragment extends SherlockListFragment
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
 	}
+	
+	
+	@Override
+    public void onListItemClick(ListView l, View v, int position, long id) 
+	{
+		Intent i = new Intent(getActivity(), ItemViewAvtivity.class);
+        
+		
+		i.putExtra("sender","appointment");
+        i.putExtra("name", mathList[position].name);
+        i.putExtra("desc", mathList[position].description);
+        i.putExtra("image_source", mathList[position].image);
+        i.putExtra("time", mathList[position].time_due);
+        
+        
+        
+        startActivity(i);
+        super.onListItemClick(l, v, position, id);
+    }
 	
 	
 	@Override
@@ -84,7 +107,7 @@ public class AppointmentFragment extends SherlockListFragment
         //db.insertAppointment(m);
         ArrayList<Appointment> listOfAppointments = db.getAllAppointment();
         
-        Item[] mathList = new Item[listOfAppointments.size()];
+        mathList = new Item[listOfAppointments.size()];
 		for(int i = 0; i < listOfAppointments.size(); ++i)
 		{
 			Item obj = new Item( listOfAppointments.get(i).drName, listOfAppointments.get(i).date,

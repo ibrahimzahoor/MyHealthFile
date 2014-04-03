@@ -11,6 +11,8 @@
         <item>Appointment</item>
         <item>Reports</item>
     </string-array>
+    
+    <string name="item_view">Item view</string>
 
     <string-array name="choose_dosage_array">
         <item>Once a Day</item>

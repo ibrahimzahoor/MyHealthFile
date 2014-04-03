@@ -27,6 +27,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockListFragment;
@@ -35,6 +36,8 @@ public class MedicineFragment extends SherlockListFragment
 {
 	String TAG="Awain";
 	ourDatabase db = new ourDatabase(getActivity());
+	
+	private Item[] mathList;
 	
 	public static MedicineFragment newInstance() 
 	{
@@ -49,6 +52,24 @@ public class MedicineFragment extends SherlockListFragment
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
 	}
+	
+	@Override
+    public void onListItemClick(ListView l, View v, int position, long id) 
+	{
+		Intent i = new Intent(getActivity(), ItemViewAvtivity.class);
+        
+		
+		i.putExtra("sender","medicine");
+        i.putExtra("name", mathList[position].name);
+        i.putExtra("desc", mathList[position].description);
+        i.putExtra("image_source", mathList[position].image);
+        i.putExtra("time", mathList[position].time_due);
+        
+        
+        
+        startActivity(i);
+        super.onListItemClick(l, v, position, id);
+    }
 	
 	
 	@Override
@@ -77,6 +98,8 @@ public class MedicineFragment extends SherlockListFragment
 		return super.onOptionsItemSelected(item);
 	}
 	
+	
+	
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
@@ -93,7 +116,7 @@ public class MedicineFragment extends SherlockListFragment
         ArrayList<Medicine> listOfMedicines = db.getAllMedicine();
         
         
-        Item[] mathList = new Item[listOfMedicines.size()];
+        mathList = new Item[listOfMedicines.size()];
 		for(int i = 0; i < listOfMedicines.size(); ++i)
 		{
 			Item obj = new Item( listOfMedicines.get(i).name_of_medicine, listOfMedicines.get(i).medicine_description,
