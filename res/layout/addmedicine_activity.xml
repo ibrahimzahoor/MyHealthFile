@@ -69,7 +69,8 @@
         android:layout_above="@+id/textView2"
         android:layout_alignRight="@+id/scrollView1"
         android:contentDescription="image"
-        android:src="@drawable/ic_action_camera" />
+        android:src="@drawable/ic_action_camera"
+        android:onClick="TakePic" />
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -252,6 +253,15 @@
             android:layout_alignParentRight="true"
             android:contentDescription="timeimage"
             android:src="@drawable/ic_action_go_to_today" />
+        
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/date"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+             />
 	        
     </RelativeLayout>
 

@@ -9,7 +9,9 @@ import com.sleepbot.datetimepicker.time.TimePickerDialog;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +19,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -27,8 +30,11 @@ import java.util.Date;
 public class AddMedicine extends FragmentActivity implements OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
 	ourDatabase db = new ourDatabase(this);
-	 public static final String DATEPICKER_TAG = "datepicker";
-	    public static final String TIMEPICKER_TAG = "timepicker";
+	private static final int REQUEST_IMAGE_CAPTURE = 1;
+	private ImageView mImageView;
+	public static final String DATEPICKER_TAG = "datepicker";
+	public static final String TIMEPICKER_TAG = "timepicker";
+	
 	public AddMedicine() {
 		// TODO Auto-generated constructor stub
 	}
@@ -90,6 +96,28 @@ public class AddMedicine extends FragmentActivity implements OnDateSetListener, 
         courses.setAdapter(choose_dosage_adapter);
 		
 		
+	}
+	
+	public void TakePic(View view)
+	{
+		dispatchTakePictureIntent();
+	}
+	
+	private void dispatchTakePictureIntent() {
+	    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+	    if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+	        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+	    }
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	    if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+	        Bundle extras = data.getExtras();
+	        Bitmap imageBitmap = (Bitmap) extras.get("data");
+	        mImageView = (ImageView) findViewById(R.id.image);
+	        mImageView.setImageBitmap(imageBitmap);
+	    }
 	}
 	
 	 @Override

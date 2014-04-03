@@ -17,12 +17,14 @@
 package com.webileapps.navdrawer;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.actionbarsherlock.view.Menu;
@@ -33,6 +35,8 @@ import com.actionbarsherlock.app.SherlockListFragment;
 public class ReportFragment extends SherlockListFragment
 {
 	String TAG="Awain";
+	
+	private Item[] mathList;
 	
 	public static ReportFragment newInstance() 
 	{
@@ -47,6 +51,24 @@ public class ReportFragment extends SherlockListFragment
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
 	}
+	
+	@Override
+    public void onListItemClick(ListView l, View v, int position, long id) 
+	{
+		Intent i = new Intent(getActivity(), ItemViewAvtivity.class);
+        
+		
+		i.putExtra("sender","report");
+        i.putExtra("name", mathList[position].name);
+        i.putExtra("desc", mathList[position].description);
+        i.putExtra("image_source", mathList[position].image);
+        i.putExtra("time", mathList[position].time_due);
+        
+        
+        
+        startActivity(i);
+        super.onListItemClick(l, v, position, id);
+    }
 	
 	
 	@Override
@@ -75,7 +97,7 @@ public class ReportFragment extends SherlockListFragment
 		
 		View view = inflater.inflate(R.layout.report_view, container, false);
 		
-		Item[] mathList = new Item[] {
+		mathList = new Item[] {
 				new Item("LOL x-ray","description","12:00 PM",""), 
 				new Item("city scan","description","10:00 PM",""), 
 				new Item("Back X-ray","description","11:00 AM",""), 
@@ -90,24 +112,7 @@ public class ReportFragment extends SherlockListFragment
 		
 		return view;
 
-//		LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-//
-//		FrameLayout fl = new FrameLayout(getActivity());
-//		fl.setLayoutParams(params);
-//
-//		final int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8, getResources()
-//				.getDisplayMetrics());
-//
-//		TextView v = new TextView(getActivity());
-//		params.setMargins(margin, margin, margin, margin);
-//		v.setLayoutParams(params);
-//		v.setLayoutParams(params);
-//		v.setGravity(Gravity.CENTER);
-//		v.setBackgroundResource(R.drawable.background_card);
-//		v.setText("CARD " + (position + 1));
-//
-//		fl.addView(v);
-//		return fl;
+
 	}
 
 }
