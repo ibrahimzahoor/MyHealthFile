@@ -15,8 +15,6 @@
  */
 
 package com.webileapps.navdrawer;
-
-
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -27,7 +25,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 
@@ -49,6 +46,8 @@ public class MainActivity extends SherlockFragmentActivity
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
+		
+		//saving data from previous
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
