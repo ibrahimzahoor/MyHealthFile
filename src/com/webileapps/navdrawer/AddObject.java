@@ -53,7 +53,7 @@ public class AddObject extends FragmentActivity implements OnDateSetListener, Ti
 		else if(type.equals("appointment"))
 		{
 			setContentView(R.layout.add_appointment);
-			//this.setInitialDateTime();
+			this.setInitialDateTime();
 		}
 		else
 		{
@@ -86,7 +86,18 @@ public class AddObject extends FragmentActivity implements OnDateSetListener, Ti
         final TimePickerDialog timePickerDialog = TimePickerDialog.newInstance(this, calendar.get(Calendar.HOUR_OF_DAY) ,calendar.get(Calendar.MINUTE), false, false);
         
         EditText ed= (EditText)findViewById(R.id.date);
-        ed.setText(calendar.get(Calendar.MONTH) + "/" + calendar.get(Calendar.DAY_OF_MONTH) + "/" + calendar.get(Calendar.YEAR));
+        String date = "";
+        int a = calendar.get(Calendar.MONTH)+1;
+        if(a > 9)
+        	date = a + "/";
+        else
+        	date = "0" + a + "/";
+        if(calendar.get(Calendar.DAY_OF_MONTH) > 9)
+        	date = date + calendar.get(Calendar.DAY_OF_MONTH) + "/";
+        else
+        	date = date + "0" + calendar.get(Calendar.DAY_OF_MONTH) + "/";
+        date = date + calendar.get(Calendar.YEAR);
+        ed.setText(date);
         
         EditText ed2= (EditText)findViewById(R.id.time);
         ed2.setText( calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE));
@@ -149,10 +160,22 @@ public class AddObject extends FragmentActivity implements OnDateSetListener, Ti
 	@Override
     public void onDateSet(DatePickerDialog datePickerDialog, int year, int month, int day) 
 	{
-        Toast.makeText(this, "new date:" + year + "/" + month + "/" + day, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "new date:" + month+1 + "/" + day + "/" + year, Toast.LENGTH_LONG).show();
         
         EditText ed= (EditText)findViewById(R.id.date);
-        ed.setText(year + "/" + month + "/" + day);
+        
+        int a = month + 1;
+        String date = "";
+        if(a > 9)
+        	date = a + "/";
+        else
+        	date = "0" + a + "/";
+        if(day > 9)
+        	date = date + day + "/";
+        else
+        	date = date + "0" + day + "/";
+        date = date + year;
+        ed.setText(date);
     }
 
 	@Override
@@ -240,28 +263,18 @@ public class AddObject extends FragmentActivity implements OnDateSetListener, Ti
     public boolean AddAppointmentToDB()
 	{
 		boolean flag=false;
-		EditText name_medicine= (EditText)findViewById(R.id.medicine_name);
-		EditText desc_medicine= (EditText)findViewById(R.id.medicine_description);
-		EditText start_time_medicine= (EditText)findViewById(R.id.time);
-		EditText date_end_medicine= (EditText)findViewById(R.id.date);
-		ToggleButton mon = (ToggleButton) findViewById(R.id.monday);
-		ToggleButton tue = (ToggleButton) findViewById(R.id.tuesday);
-		ToggleButton wed = (ToggleButton) findViewById(R.id.wednesday);
-		ToggleButton thu = (ToggleButton) findViewById(R.id.thursday);
-		ToggleButton fri = (ToggleButton) findViewById(R.id.friday);
-		ToggleButton sat = (ToggleButton) findViewById(R.id.saturday);
-		ToggleButton sun = (ToggleButton) findViewById(R.id.sunday);
-				
-
-		if((mon.isChecked() || tue.isChecked() || wed.isChecked() || thu.isChecked() || fri.isChecked() || sat.isChecked() || sun.isChecked()) && 
-		(name_medicine.getText().toString().length() > 0 && desc_medicine.getText().toString().length() > 0 &&
-			start_time_medicine.getText().toString().length() > 0 && date_end_medicine.getText().toString().length() > 0))
+		EditText name_appointment = (EditText)findViewById(R.id.doctor_name);
+		EditText loc_appointment = (EditText)findViewById(R.id.location);				
+		EditText date_appointment = (EditText)findViewById(R.id.date);
+		EditText time_appointment = (EditText)findViewById(R.id.time);
+		
+		if( name_appointment.getText().toString().length() > 0)
 		{
-			Medicine obj=new Medicine(0, name_medicine.getText().toString(), "", desc_medicine.getText().toString(),
-			mon.isChecked(), tue.isChecked(), wed.isChecked(), thu.isChecked(), fri.isChecked(),sat.isChecked(),
-			sun.isChecked(), start_time_medicine.getText().toString(), "", false, start_time_medicine.getText().toString());
+			Appointment obj=new Appointment(0, name_appointment.getText().toString(), 
+					date_appointment.getText().toString(), time_appointment.getText().toString(), 
+					loc_appointment.getText().toString(), "", "");
 			
-			db.insertMedicine(obj);
+			db.insertAppointment(obj);
 			flag = true;
 		}
 			return flag;
