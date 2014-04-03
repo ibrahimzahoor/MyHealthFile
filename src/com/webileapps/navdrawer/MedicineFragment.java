@@ -31,6 +31,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockListFragment;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class MedicineFragment extends SherlockListFragment
 {
@@ -133,7 +135,9 @@ public class MedicineFragment extends SherlockListFragment
 	{
 		
 		View view =inflater.inflate(R.layout.medicine_view, container, false);
-		
+		AdView adView = (AdView) view.findViewById(R.id.adView);
+	    AdRequest adRequest = new AdRequest.Builder().build();
+	    adView.loadAd(adRequest);
         db = new ourDatabase(getActivity());
         
         //db.deleteAll();

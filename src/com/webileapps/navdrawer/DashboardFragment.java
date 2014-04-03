@@ -20,6 +20,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -27,7 +28,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import com.actionbarsherlock.app.SherlockListFragment;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class DashboardFragment extends SherlockListFragment
 {
@@ -89,7 +93,9 @@ public class DashboardFragment extends SherlockListFragment
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
 	{
 		View view= inflater.inflate(R.layout.dashboard_view, container, false);
-		
+		AdView adView = (AdView) view.findViewById(R.id.adView);
+	    AdRequest adRequest = new AdRequest.Builder().build();
+	    adView.loadAd(adRequest);
 		db = new ourDatabase(getActivity());
         
         ArrayList<Medicine> listOfMedicines = db.getAllMedicine();

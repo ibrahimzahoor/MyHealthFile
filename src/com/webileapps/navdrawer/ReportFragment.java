@@ -31,6 +31,8 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockListFragment;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class ReportFragment extends SherlockListFragment
 {
@@ -94,7 +96,9 @@ public class ReportFragment extends SherlockListFragment
 	{
 		
 		View view = inflater.inflate(R.layout.report_view, container, false);
-		
+		AdView adView = (AdView) view.findViewById(R.id.adView);
+	    AdRequest adRequest = new AdRequest.Builder().build();
+	    adView.loadAd(adRequest);
 		mathList = new Item[] 
 				{
 					new Item("X-ray","description","12:00 PM",""), 
