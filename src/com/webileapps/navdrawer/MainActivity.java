@@ -25,8 +25,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 
 public class MainActivity extends SherlockFragmentActivity 
@@ -99,6 +102,8 @@ public class MainActivity extends SherlockFragmentActivity
 		{
 			selectItem(0);
 		}
+		
+		
 
 	}
 
@@ -180,6 +185,7 @@ public class MainActivity extends SherlockFragmentActivity
 						.replace(R.id.content,
 								PageSlidingTabStripFragment.newInstance(),
 								PageSlidingTabStripFragment.TAG).commit();
+				
 
 				break;
 				
@@ -187,6 +193,7 @@ public class MainActivity extends SherlockFragmentActivity
 				Toast.makeText(getApplicationContext(), "medicine case 1", Toast.LENGTH_SHORT).show();
 				getSupportFragmentManager().beginTransaction().replace(R.id.content,MedicineFragment.newInstance()
 						,PageSlidingTabStripFragment.TAG).commit();
+				
 				
 				break;
 			case 2:

@@ -4,6 +4,8 @@ import java.util.Calendar;
 
 import com.fourmob.datetimepicker.date.DatePickerDialog;
 import com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.sleepbot.datetimepicker.time.RadialPickerLayout;
 import com.sleepbot.datetimepicker.time.TimePickerDialog;
 
@@ -95,7 +97,10 @@ public class AddMedicine extends FragmentActivity implements OnDateSetListener, 
         // Apply the adapter to the spinner
         courses.setAdapter(choose_dosage_adapter);
 		
-		
+     // Look up the AdView as a resource and load a request.
+	    AdView adView = (AdView)this.findViewById(R.id.adView);
+	    AdRequest adRequest = new AdRequest.Builder().build();
+	    adView.loadAd(adRequest);
 	}
 	
 	public void TakePic(View view)

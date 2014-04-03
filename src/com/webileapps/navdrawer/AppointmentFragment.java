@@ -33,6 +33,8 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockListFragment;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class AppointmentFragment extends SherlockListFragment
 {
@@ -100,7 +102,9 @@ public class AppointmentFragment extends SherlockListFragment
 	{
 		
 		View view= inflater.inflate(R.layout.appointment_view, container, false);
-		
+		AdView adView = (AdView) view.findViewById(R.id.adView);
+	    AdRequest adRequest = new AdRequest.Builder().build();
+	    adView.loadAd(adRequest);
 		db = new ourDatabase(getActivity());
         
 		//Appointment m = new Appointment(5, "Dr. Umar Suleman", "04/02/2014", "12:00", "Zahoor Elahi Road", "", ""); 

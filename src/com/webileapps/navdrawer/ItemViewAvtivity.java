@@ -20,6 +20,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 
 public class ItemViewAvtivity extends SherlockFragmentActivity 
@@ -62,7 +64,10 @@ public class ItemViewAvtivity extends SherlockFragmentActivity
 		TextView desc= (TextView)findViewById(R.id.textView3);
 		desc.setText("desc");
 		
-		
+		AdView adView = (AdView) findViewById(R.id.adView);
+	    AdRequest adRequest = new AdRequest.Builder().build();
+	    adView.loadAd(adRequest);
+	    
 		
 	}
 
