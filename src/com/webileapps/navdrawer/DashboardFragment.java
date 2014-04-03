@@ -15,37 +15,24 @@
  */
 
 package com.webileapps.navdrawer;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
-import com.astuetz.PagerSlidingTabStrip;
-
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
+import android.widget.ListView;
 import android.widget.Toast;
-import android.widget.FrameLayout.LayoutParams;
-import android.widget.TextView;
-
-import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockListFragment;
 
 public class DashboardFragment extends SherlockListFragment
 {
 	//ourDatabase db = new ourDatabase(getActivity());
 	
-	
-	private static final String ARG_POSITION = "position";
-
-	private int position;
+	private Item[] mathList;
 
 	public static DashboardFragment newInstance() 
 	{
@@ -59,6 +46,24 @@ public class DashboardFragment extends SherlockListFragment
 		super.onCreate(savedInstanceState);
 
 	}
+	
+	@Override
+    public void onListItemClick(ListView l, View v, int position, long id) 
+	{
+		Intent i = new Intent(getActivity(), ItemViewAvtivity.class);
+        
+		
+		i.putExtra("sender","dashboard");
+        i.putExtra("name", mathList[position].name);
+        i.putExtra("desc", mathList[position].description);
+        i.putExtra("image_source", mathList[position].image);
+        i.putExtra("time", mathList[position].time_due);
+        
+        
+        startActivity(i);
+        super.onListItemClick(l, v, position, id);
+    }
+	
 	
 	
 	@Override
@@ -88,7 +93,7 @@ public class DashboardFragment extends SherlockListFragment
 		
 		//db.insertMedicine();
 		
-		Item[] mathList = new Item[] {
+		mathList = new Item[] {
 				new Item("LOL x-ray","description","12:00 PM",""), 
 				new Item("city scan","description","10:00 PM",""), 
 				new Item("Back X-ray","description","11:00 AM",""), 

@@ -1335,19 +1335,19 @@ containing a value of this type.
         public static final int abs__textButton=0x7f040020;
         public static final int abs__title=0x7f040028;
         public static final int abs__up=0x7f04000b;
-        public static final int action_accept=0x7f040070;
-        public static final int action_cancel=0x7f040071;
-        public static final int add=0x7f04006f;
-        public static final int ampm_hitspace=0x7f04006a;
-        public static final int ampm_label=0x7f04006b;
+        public static final int action_accept=0x7f040072;
+        public static final int action_cancel=0x7f040073;
+        public static final int add=0x7f040071;
+        public static final int ampm_hitspace=0x7f04006c;
+        public static final int ampm_label=0x7f04006d;
         public static final int animator=0x7f040017;
         public static final int camera_image=0x7f040044;
         public static final int center=0x7f04005e;
-        public static final int center_view=0x7f040064;
+        public static final int center_view=0x7f040066;
         public static final int choose_dosage=0x7f040052;
-        public static final int colors=0x7f04005b;
+        public static final int colors=0x7f04005c;
         public static final int content=0x7f040040;
-        public static final int dashboard_text=0x7f04005c;
+        public static final int dashboard_text=0x7f04005d;
         public static final int date=0x7f040057;
         public static final int date_image=0x7f040058;
         public static final int date_picker_day=0x7f040015;
@@ -1356,54 +1356,56 @@ containing a value of this type.
         public static final int date_picker_month_and_day=0x7f040013;
         public static final int date_picker_year=0x7f040016;
         public static final int day_picker_selected_date_layout=0x7f040012;
-        public static final int desc=0x7f040063;
+        public static final int desc=0x7f040065;
         public static final int disableHome=0x7f040009;
         public static final int done=0x7f040010;
-        public static final int done_button=0x7f04006e;
+        public static final int done_button=0x7f040070;
         public static final int drawer_layout=0x7f04003f;
         public static final int edit_query=0x7f040033;
         public static final int friday=0x7f04004e;
         public static final int homeAsUp=0x7f040006;
-        public static final int hour_space=0x7f040065;
-        public static final int hours=0x7f040067;
+        public static final int hour_space=0x7f040067;
+        public static final int hours=0x7f040069;
         public static final int hybrid=0x7f04001c;
-        public static final int image=0x7f04005d;
+        public static final int image=0x7f040059;
+        public static final int imageView1=0x7f040060;
         public static final int left_drawer=0x7f040041;
         public static final int linearLayout1=0x7f040049;
         public static final int listMode=0x7f040002;
-        public static final int list_image=0x7f040061;
+        public static final int list_image=0x7f040063;
         public static final int medicine_description=0x7f040048;
         public static final int medicine_name=0x7f040045;
-        public static final int minutes=0x7f040069;
-        public static final int minutes_space=0x7f040068;
+        public static final int minutes=0x7f04006b;
+        public static final int minutes_space=0x7f04006a;
         public static final int monday=0x7f04004a;
         public static final int month_text_view=0x7f040018;
-        public static final int name=0x7f040062;
+        public static final int name=0x7f040064;
         public static final int none=0x7f040019;
         public static final int normal=0x7f040001;
         public static final int once_a_day=0x7f040053;
-        public static final int pager=0x7f04005a;
+        public static final int pager=0x7f04005b;
         public static final int satellite=0x7f04001a;
         public static final int saturday=0x7f04004f;
         public static final int scrollView1=0x7f040047;
         public static final int scrollView2=0x7f040043;
-        public static final int separator=0x7f040066;
+        public static final int separator=0x7f040068;
         public static final int showCustom=0x7f040008;
         public static final int showHome=0x7f040005;
         public static final int showTitle=0x7f040007;
         public static final int sunday=0x7f040050;
         public static final int tabMode=0x7f040003;
-        public static final int tabs=0x7f040059;
+        public static final int tabs=0x7f04005a;
         public static final int terrain=0x7f04001b;
         public static final int textView1=0x7f040042;
         public static final int textView2=0x7f040046;
+        public static final int textView3=0x7f040061;
         public static final int textViewPosition=0x7f04005f;
-        public static final int thumbnail=0x7f040060;
+        public static final int thumbnail=0x7f040062;
         public static final int thursday=0x7f04004d;
         public static final int time=0x7f040055;
         public static final int time_image=0x7f040056;
-        public static final int time_picker=0x7f04006d;
-        public static final int time_picker_dialog=0x7f04006c;
+        public static final int time_picker=0x7f04006f;
+        public static final int time_picker_dialog=0x7f04006e;
         public static final int tuesday=0x7f04004b;
         public static final int useLogo=0x7f040004;
         public static final int wednesday=0x7f04004c;
@@ -1449,15 +1451,16 @@ containing a value of this type.
         public static final int fragment_planet=0x7f030020;
         public static final int fragment_quick_contact=0x7f030021;
         public static final int fragment_test=0x7f030022;
-        public static final int medicine_view=0x7f030023;
-        public static final int pager=0x7f030024;
-        public static final int report_view=0x7f030025;
-        public static final int sherlock_spinner_dropdown_item=0x7f030026;
-        public static final int sherlock_spinner_item=0x7f030027;
-        public static final int subject_item_row=0x7f030028;
-        public static final int time_header_label=0x7f030029;
-        public static final int time_picker_dialog=0x7f03002a;
-        public static final int year_label_text_view=0x7f03002b;
+        public static final int item_detailed_view=0x7f030023;
+        public static final int medicine_view=0x7f030024;
+        public static final int pager=0x7f030025;
+        public static final int report_view=0x7f030026;
+        public static final int sherlock_spinner_dropdown_item=0x7f030027;
+        public static final int sherlock_spinner_item=0x7f030028;
+        public static final int subject_item_row=0x7f030029;
+        public static final int time_header_label=0x7f03002a;
+        public static final int time_picker_dialog=0x7f03002b;
+        public static final int year_label_text_view=0x7f03002c;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
@@ -1504,12 +1507,12 @@ containing a value of this type.
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f090007;
         public static final int action_contact=0x7f090043;
-        public static final int action_websearch=0x7f090047;
-        public static final int add=0x7f090044;
+        public static final int action_websearch=0x7f090048;
+        public static final int add=0x7f090045;
         public static final int add_medicine=0x7f090042;
         public static final int ampm_circle_radius_multiplier=0x7f090010;
         public static final int app_name=0x7f090041;
-        public static final int app_not_available=0x7f090048;
+        public static final int app_not_available=0x7f090049;
         /**   Title for notification shown when GooglePlayServices needs to be
         enabled for a application to work. [CHAR LIMIT=70] 
          */
@@ -1614,8 +1617,8 @@ containing a value of this type.
          */
         public static final int deleted_key=0x7f090021;
         public static final int done_label=0x7f090017;
-        public static final int drawer_close=0x7f090046;
-        public static final int drawer_open=0x7f090045;
+        public static final int drawer_close=0x7f090047;
+        public static final int drawer_open=0x7f090046;
         /** 
          Content description for the hour selector in the time picker, which displays
          selectable hours of the day along the inside edge of a circle, as in an analog clock.
@@ -1624,6 +1627,7 @@ containing a value of this type.
          */
         public static final int hour_picker_description=0x7f090022;
         public static final int item_is_selected=0x7f09001c;
+        public static final int item_view=0x7f090044;
         /** 
          Content description for the minute selector in the time picker, which displays
          selectable five-minute intervals along the inside edge of a circle, as in an analog clock.
