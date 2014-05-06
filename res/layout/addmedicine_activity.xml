@@ -71,7 +71,7 @@
         android:layout_alignRight="@+id/scrollView1"
         android:contentDescription="image"
         android:src="@drawable/ic_action_camera"
-        android:onClick="TakePic" />
+        android:onClick="TakePic_Medicine" />
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -207,7 +207,8 @@
             android:layout_toRightOf="@+id/TextView11"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:inputType="time" />
+            android:inputType="time" 
+            android:editable="false"/>
 
         <ImageButton
             android:id="@+id/time_image"
@@ -244,6 +245,7 @@
             android:layout_toRightOf="@+id/TextView11"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:editable="false"
             android:inputType="date" />
 
         <ImageButton

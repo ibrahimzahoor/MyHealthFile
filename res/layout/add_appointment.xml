@@ -69,8 +69,7 @@
        android:layout_marginRight="5dp"
        android:layout_alignBottom="@+id/textView2"
        android:layout_toRightOf="@+id/textView2"
-       android:layout_toLeftOf="@+id/date_image"
-       android:inputType="date" />
+       android:layout_toLeftOf="@+id/date_image" />
 
    <ImageButton
        android:id="@+id/time_image"
@@ -99,21 +98,9 @@
        android:layout_marginRight="5dp"
        android:layout_alignBottom="@+id/time_image"
        android:layout_toLeftOf="@+id/time_image"
-       android:layout_toRightOf="@+id/TextViewtime"
-       
-       android:inputType="date" />
+       android:layout_toRightOf="@+id/TextViewtime" />
 
-   <TextView
-       android:id="@+id/TextView01"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignLeft="@+id/TextViewtime"
-       android:layout_below="@+id/TextViewtime"
-       android:layout_marginTop="30dp"
-       android:text="Location:"
-       android:textAppearance="?android:attr/textAppearanceMedium" />
-
-   <EditText
+   <AutoCompleteTextView
        android:id="@+id/location"
        android:layout_width="fill_parent"
        android:layout_height="wrap_content"
@@ -121,6 +108,58 @@
        android:layout_marginRight="15dp"
        android:layout_marginLeft="10dp"
        android:layout_toRightOf="@+id/TextView01"
-       android:hint="25-A Milad Street Lhr" />
+       />
 
+   
+   <EditText
+    	android:id="@+id/Phone_num"
+    	android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:layout_alignBottom="@+id/TextView02"
+	    android:layout_toRightOf="@+id/TextView02"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginRight="15dp" 
+	    android:inputType="phone"/>
+
+   
+   <EditText
+    	android:id="@+id/email"
+    	android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:layout_alignBottom="@+id/TextView03"
+	    android:layout_toRightOf="@+id/TextView03"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginRight="15dp"
+	    android:inputType="textEmailAddress"/>
+
+   <TextView
+       android:id="@+id/TextView02"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignLeft="@+id/TextView01"
+       android:layout_below="@+id/TextView01"
+       android:layout_marginTop="25dp"
+       android:text="Phone No.:"
+       android:textAppearance="?android:attr/textAppearanceMedium" />
+
+   <TextView
+       android:id="@+id/TextView03"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignLeft="@+id/TextView02"
+       android:layout_below="@+id/TextView02"
+       android:layout_marginTop="25dp"
+       android:text="Email:"
+       android:textAppearance="?android:attr/textAppearanceMedium" />
+
+   <TextView
+       android:id="@+id/TextView01"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignLeft="@+id/TextViewtime"
+       android:layout_below="@+id/TextViewtime"
+       android:layout_marginTop="25dp"
+       android:text="Location:"
+       android:textAppearance="?android:attr/textAppearanceMedium" />
+   
 </RelativeLayout>

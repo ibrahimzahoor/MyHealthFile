@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    
+    android:orientation="horizontal"
+    android:padding="0dip" >
+    
+    <com.google.android.gms.ads.AdView
+		android:id="@+id/adView"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        ads:adSize="BANNER"
+		ads:adUnitId="a1531b38b89a279" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView2"
+                android:layout_gravity="center"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical" >
+
+        <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="10dp"
+	        android:layout_gravity="center"
+	        android:orientation="horizontal" >
+	    
+	        <ToggleButton
+	            android:id="@+id/monday"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:background="@drawable/recurrence_bubble_fill"
+	            android:textOff="MON"
+	            android:textOn="MON" />
+	
+	        <ToggleButton
+	            android:id="@+id/tuesday"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="12dp"
+	            android:background="@drawable/recurrence_bubble_fill"
+	            android:checked="TRUE"
+	            android:textOff="TUE"
+	            android:textOn="TUE" />
+	
+	        <ToggleButton
+	            android:id="@+id/wednesday"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="12dp"
+	            android:background="@drawable/recurrence_bubble_fill"
+	            android:textOff="WED"
+	            android:textOn="WED" />
+	
+	        <ToggleButton
+	            android:id="@+id/thursday"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="12dp"
+	            android:background="@drawable/recurrence_bubble_fill"
+	            android:textOff="THU"
+	            android:textOn="THU" />
+		</LinearLayout>
+	
+		<LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="10dp"
+	        android:layout_gravity="center"
+	        android:orientation="horizontal" >
+	    
+	        <ToggleButton
+	            android:id="@+id/friday"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:background="@drawable/recurrence_bubble_fill"
+	            android:textOff="FRI"
+	            android:textOn="FRI" />
+	
+	        <ToggleButton
+	            android:id="@+id/saturday"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="15dp"
+	            android:checked="TRUE"
+	            android:background="@drawable/recurrence_bubble_fill"
+	            android:textOff="SAT"
+	            android:textOn="SAT" />
+	
+	        <ToggleButton
+	            android:id="@+id/sunday"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:checked="TRUE"
+	            
+	            android:layout_marginLeft="15dp"
+	            android:background="@drawable/recurrence_bubble_fill"
+	            android:textOff="SUN"
+	            android:textOn="SUN" />
+
+	    </LinearLayout>
+	</LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="200dip"
+        android:layout_above="@+id/adView"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/contact" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="20dp"
+        android:text="This is the description" />
+
+    <ToggleButton
+        android:id="@+id/fridayview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView1"
+        android:layout_alignLeft="@+id/textView1"
+        android:background="@drawable/recurrence_bubble_fill"
+        android:textOff="FRI"
+        android:textOn="FRI" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignParentRight="true"
+        android:text="10:00 A.M" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:text="Name of the medicine"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+</RelativeLayout>

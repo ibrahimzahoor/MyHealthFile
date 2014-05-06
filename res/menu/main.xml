@@ -1,10 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-
     
-
     	<item android:id="@+id/add"
-          android:icon="@android:drawable/ic_input_add"
+          android:icon="@drawable/ic_action_new"
           android:showAsAction="always"
-          android:title="@string/add" />	
-    
+          android:title="@string/add"/>
+    	
 </menu>

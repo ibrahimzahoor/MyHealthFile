@@ -17,13 +17,13 @@
 
     <ListView
         android:id="@+id/left_drawer"
-        android:layout_width="150dp"
+        android:layout_width="260dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="#FFFFFF"
-        android:textColor="#000"
+        android:background="#736F6E"
+        android:textColor="#FFFFFF"
         android:choiceMode="singleChoice"
-        android:divider="#151515"
+        android:divider="#FFFFFF"
         android:dividerHeight="1dp" />
 
 </android.support.v4.widget.DrawerLayout>
