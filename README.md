@@ -18,7 +18,17 @@ at National University of Computer & Emerging Sciences (FAST-NU), Lahore, Pakist
 
 
 ##    Screenshots
-![Alt,mk text](https://raw.githubusercontent.com/ibrahimzahoor/MyHealthFile/master/res/drawable/icon_twitter.png "Optional title jjhh")
+![Alt,mk text](https://raw.githubusercontent.com/ibrahimzahoor/MyHealthFile/master/Screenshots/1.png "Optional title jjhh")
+![Alt,mk text](https://raw.githubusercontent.com/ibrahimzahoor/MyHealthFile/master/Screenshots/2.png "Optional title jjhh")
+
+![Alt,mk text](https://raw.githubusercontent.com/ibrahimzahoor/MyHealthFile/master/Screenshots/3.png "Optional title jjhh")
+![Alt,mk text](https://raw.githubusercontent.com/ibrahimzahoor/MyHealthFile/master/Screenshots/4.png "Optional title jjhh")
+
+![Alt,mk text](https://raw.githubusercontent.com/ibrahimzahoor/MyHealthFile/master/Screenshots/5.png "Optional title jjhh")
+![Alt,mk text](https://raw.githubusercontent.com/ibrahimzahoor/MyHealthFile/master/Screenshots/6.png "Optional title jjhh")
+
+![Alt,mk text](https://raw.githubusercontent.com/ibrahimzahoor/MyHealthFile/master/Screenshots/7.png "Optional title jjhh")
+![Alt,mk text](https://raw.githubusercontent.com/ibrahimzahoor/MyHealthFile/master/Screenshots/8.png "Optional title jjhh")
 
 
 ##    Libraries Used
