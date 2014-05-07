@@ -13,7 +13,6 @@
 	        android:id="@+id/view01"
 	        android:layout_width="fill_parent"
 	        android:layout_height="1dp"
-	        android:layout_below="@+id/topbar"
 	        android:background="#313437" />
 		
 	     <ListView
@@ -27,7 +26,6 @@
 	    <RelativeLayout
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/feed_layout"
 	        android:layout_alignParentBottom="true"
 	        android:background="@drawable/layout_gradient" >
 	
@@ -43,9 +41,7 @@
 	        android:id="@+id/editTxt"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
-	        android:layout_alignBaseline="@+id/text"
-	        android:layout_alignBottom="@+id/text"
-	        android:layout_alignParentRight="true"
+	        android:background="#313437"
 	        android:layout_margin="5dp"
 	        android:ems="10"
 	        android:hint="Enter Message"
@@ -60,7 +56,6 @@
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_alignBottom="@+id/text"
-	        android:layout_alignLeft="@+id/text"
 	        android:layout_below="@+id/view01"
 	        android:text="Share Update"
 	        android:textColor="#ffffff"
